@@ -1,9 +1,7 @@
 EFlatMenu Yii Extension
 =========
 
-Yii extension for multilevel responsive menu
-
-This Yii framework extension will provide multi-level responsive menu using [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+Yii framework extension which provides a multi-level responsive menu using [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 
 **Requirements**
