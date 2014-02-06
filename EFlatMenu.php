@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Resposive Multilevel Flat Menu
  *
@@ -7,25 +6,20 @@
  */
 class EFlatMenu extends CWidget {
 
-    private $cssFile = 'eflatmenu.css';
-    private $jsFile = 'eflatmenu.js';
-    private $fontawesomeCSSFile = 'font-awesome.css';
     public $items = array();
 
     /**
      * Init widget
      */
     public function init() {
-        $dir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'resources';
-
-        $baseUrl = Yii::app()->getAssetManager()->publish($dir);
-
-        $this->cssFile = $baseUrl . DIRECTORY_SEPARATOR . $this->cssFile;
-        $this->jsFile = $baseUrl . DIRECTORY_SEPARATOR . $this->jsFile;
-        $this->fontawesomeCSSFile = $baseUrl . DIRECTORY_SEPARATOR . 'font-awesome' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . $this->fontawesomeCSSFile;
-
-        $this->registerClientScript();
         parent::init();
+ 
+        $cs=Yii::app()->getClientScript();
+        $scriptUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('application.extensions.eflatmenu.resources'));
+ 
+        $cs->registerCssFile($scriptUrl . '/eflatmenu.css');
+        $cs->registerCssFile($scriptUrl . '/font-awesome/font-awesome.css');
+        $cs->registerScriptFile($scriptUrl . '/eflatmenu.js');
     }
 
     protected function registerClientScript() {
@@ -44,5 +38,4 @@ class EFlatMenu extends CWidget {
     }
 
 }
-
 ?>
